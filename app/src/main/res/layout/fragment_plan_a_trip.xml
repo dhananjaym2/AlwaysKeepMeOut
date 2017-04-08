@@ -1,0 +1,43 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="keepmeout.travel.PlanATripFrag">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <net.qiujuer.genius.ui.widget.EditText
+            android:id="@+id/source_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/from_text"
+            app:gFont="roboto.ttf"
+            app:gHintTitle="slide"
+            app:gHintTitlePaddingBottom="2dp"
+            app:gHintTitlePaddingLeft="0dp"
+            app:gHintTitlePaddingRight="0dp"
+            app:gHintTitlePaddingTop="4dp"
+            app:gHintTitleTextSize="18sp"
+            app:gLineColor="@color/g_default_seek_bar_track"
+            app:gLineSize="2dp" />
+
+        <net.qiujuer.genius.ui.widget.EditText
+            android:id="@+id/destination_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/to_text"
+            app:gFont="roboto.ttf"
+            app:gHintTitle="slide"
+            app:gHintTitlePaddingBottom="2dp"
+            app:gHintTitlePaddingLeft="0dp"
+            app:gHintTitlePaddingRight="0dp"
+            app:gHintTitlePaddingTop="4dp"
+            app:gHintTitleTextSize="18sp"
+            app:gLineColor="@color/g_default_seek_bar_track"
+            app:gLineSize="2dp" />
+    </LinearLayout>
+</FrameLayout>
