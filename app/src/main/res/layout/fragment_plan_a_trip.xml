@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context="keepmeout.travel.Container.PlanATripFrag">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <net.qiujuer.genius.ui.widget.EditText
             android:id="@+id/source_edittext"
@@ -25,16 +24,18 @@
             app:gLineColor="@color/g_default_seek_bar_track"
             app:gLineSize="2dp" />
 
-        <AutoCompleteTextView
-            android:id="@+id/source_autocompletetv"
+        <ListView
+            android:id="@+id/sourceSuggestions_listView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/source_text" />
+            android:visibility="gone"/>
+
 
         <net.qiujuer.genius.ui.widget.EditText
             android:id="@+id/destination_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/source_edittext"
             android:hint="@string/destination_text"
             app:gFont="roboto.ttf"
             app:gHintTitle="slide"
@@ -51,10 +52,11 @@
             android:id="@+id/start_date"
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:layout_below="@id/destination_edittext"
             android:layout_marginTop="10dp"
             android:paddingLeft="2dp"
             android:text="@string/start_date_text"
             android:textSize="18sp" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>

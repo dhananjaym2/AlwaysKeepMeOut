@@ -10,9 +10,9 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -21,14 +21,14 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import keepmeout.travel.R;
-import keepmeout.travel.adapters.SuggestionsActvAdapter;
+import keepmeout.travel.adapters.SuggestionsAdapter;
 import keepmeout.travel.pojo.SuggestionModel;
+import keepmeout.travel.pojo.SuggestionNameAndId;
 import keepmeout.travel.util.AlertDialog_OnClickInterface;
 import keepmeout.travel.util.AppLog;
 import keepmeout.travel.util.AppUtil;
@@ -54,8 +54,9 @@ public class PlanATripFrag extends Fragment {
     private EditText source_edittext;
     private OnFragmentInteractionListener mListener;
     private SuggestionModel[] suggestionModels;
-    private List<SuggestionModel> suggestionModelList;
-    private AutoCompleteTextView source_autocompletetv;
+    private ArrayList<SuggestionNameAndId> suggestionModelList = new ArrayList<>();
+    private ListView sourceSuggestions_listView;
+    //private EditText source_autocompletetv;
 
     public PlanATripFrag() {
         // Required empty public constructor
@@ -131,7 +132,7 @@ public class PlanATripFrag extends Fragment {
             }
         });
 
-        source_autocompletetv = (AutoCompleteTextView) parentView.findViewById(R.id.source_autocompletetv);
+        sourceSuggestions_listView = (ListView) parentView.findViewById(R.id.sourceSuggestions_listView);
         return parentView;
     }
 
@@ -220,16 +221,19 @@ public class PlanATripFrag extends Fragment {
     private void parseSuggestionsResponse(String response) {
         Gson gson = new GsonBuilder().create();
         //AppLog.v("size:", " items:" +  new Gson().fromJson(response, SuggestionModel.class));
+        SuggestionNameAndId sidnname;
         suggestionModels = new Gson().fromJson(response, SuggestionModel[].class);
-        for (SuggestionModel section : suggestionModels) {
-            AppLog.v("Debug", section.getText());
+        for (SuggestionModel model : suggestionModels) {
+            sidnname = new SuggestionNameAndId(model.getText(), model.getId());
+
+            suggestionModelList.add(sidnname);
         }
 
-        suggestionModelList = Arrays.asList(suggestionModels);
 
-        SuggestionsActvAdapter suggestionsActvAdapter = new SuggestionsActvAdapter(getActivity(), android.R.layout.simple_dropdown_item_1line, suggestionModelList);
-        source_autocompletetv.setAdapter(suggestionsActvAdapter);
+        SuggestionsAdapter suggestionsAdapter = new SuggestionsAdapter(getActivity(), suggestionModelList);
 
-        //AppLog.v("size:", " items:" + suggestionResponse.getSuggestionModels().size());
+        sourceSuggestions_listView.setAdapter(suggestionsAdapter);
+        sourceSuggestions_listView.setVisibility(View.VISIBLE);
+
     }
 }
