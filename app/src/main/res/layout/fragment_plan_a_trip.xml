@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="keepmeout.travel.PlanATripFrag">
+    tools:context="keepmeout.travel.Container.PlanATripFrag">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,30 +14,47 @@
             android:id="@+id/source_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/from_text"
+            android:hint="@string/source_text"
             app:gFont="roboto.ttf"
             app:gHintTitle="slide"
             app:gHintTitlePaddingBottom="2dp"
-            app:gHintTitlePaddingLeft="0dp"
-            app:gHintTitlePaddingRight="0dp"
+            app:gHintTitlePaddingLeft="4dp"
+            app:gHintTitlePaddingRight="4dp"
             app:gHintTitlePaddingTop="4dp"
             app:gHintTitleTextSize="18sp"
             app:gLineColor="@color/g_default_seek_bar_track"
             app:gLineSize="2dp" />
 
+        <AutoCompleteTextView
+            android:id="@+id/source_autocompletetv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/source_text" />
+
         <net.qiujuer.genius.ui.widget.EditText
             android:id="@+id/destination_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/to_text"
+            android:hint="@string/destination_text"
             app:gFont="roboto.ttf"
             app:gHintTitle="slide"
             app:gHintTitlePaddingBottom="2dp"
-            app:gHintTitlePaddingLeft="0dp"
-            app:gHintTitlePaddingRight="0dp"
+            app:gHintTitlePaddingLeft="4dp"
+            app:gHintTitlePaddingRight="4dp"
             app:gHintTitlePaddingTop="4dp"
             app:gHintTitleTextSize="18sp"
             app:gLineColor="@color/g_default_seek_bar_track"
             app:gLineSize="2dp" />
+
+
+        <TextView
+            android:id="@+id/start_date"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="2dp"
+            android:text="@string/start_date_text"
+            android:textSize="18sp" />
+
     </LinearLayout>
 </FrameLayout>

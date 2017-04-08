@@ -1,4 +1,4 @@
-package keepmeout.travel;
+package keepmeout.travel.Container;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import keepmeout.travel.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, PlanATripFrag.OnFragmentInteractionListener {
 
@@ -111,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Highlight the selected item, update the title, and close the drawer
         //drawer.setItemChecked(position, true);
-        setTitle(FragTag);
+        setTitle(Title);
         //drawer.closeDrawer(mDrawerList);
     }
 
