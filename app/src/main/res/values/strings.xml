@@ -20,4 +20,6 @@
     <string name="Retry">Retry</string>
     <string name="city_suggestion_URL"><![CDATA[http://build2.ixigo.com/action/content/zeus/autocomplete?searchFor=tpAutoComplete&neCategories=City]]></string>
     <string name="share_planned_text">Share Planned Trip</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="Search">Search</string>
 </resources>

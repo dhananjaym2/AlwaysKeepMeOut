@@ -12,19 +12,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import keepmeout.travel.R;
-import keepmeout.travel.pojo.SuggestionModel;
-import keepmeout.travel.pojo.SuggestionNameAndId;
+import keepmeout.travel.pojo.SuggestionResponse;
 
 /**
  * Created by vikesh on 08-04-2017.
  */
 
 public class SuggestionsAdapter extends BaseAdapter {
-    private final ArrayList<SuggestionNameAndId> al_suggestions;
+    private final ArrayList<SuggestionResponse> al_suggestions;
     private final Context mContext;
     String LOG_TAG = SuggestionsAdapter.class.getSimpleName();
 
-    public SuggestionsAdapter(Context mContext, ArrayList<SuggestionNameAndId> al_suggestions) {
+    public SuggestionsAdapter(Context mContext, ArrayList<SuggestionResponse> al_suggestions) {
         Log.v(LOG_TAG, "in Station_ListViewAdapter() constructor");
         this.mContext = mContext;
         this.al_suggestions = al_suggestions;
@@ -70,6 +69,7 @@ public class SuggestionsAdapter extends BaseAdapter {
         } else {
             mViewHolder = (ViewHolder) convertView.getTag();
         }
+
 
         mViewHolder.suggestion_name_tv.setText(al_suggestions.get(position).getNameSuggested());
         return convertView;

@@ -1,21 +1,38 @@
 package keepmeout.travel.pojo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by vikesh on 08-04-2017.
  */
 
 public class SuggestionResponse {
-    public ArrayList<SuggestionModel> getSuggestionModels() {
-        return suggestionModels;
+    public SuggestionResponse(String nameSuggested, String id, long Xid) {
+        this.nameSuggested = nameSuggested;
+        this.id = id;
+        this.xid = Xid;
     }
 
-    public void setSuggestionModels(ArrayList<SuggestionModel> suggestionModels) {
-        this.suggestionModels = suggestionModels;
+    public String getNameSuggested() {
+        return nameSuggested;
     }
 
-    private ArrayList<SuggestionModel> suggestionModels;
+   /* public void setNameSuggested(String nameSuggested) {
+        this.nameSuggested = nameSuggested;
+    }*/
 
+    public String getId() {
+        return id;
+    }
+
+    /*public void setId(int id) {
+        this.id = id;
+    }*/
+
+    String nameSuggested;
+    String id;
+
+    public long getXid() {
+        return xid;
+    }
+
+    long xid;
 }
